@@ -89,7 +89,7 @@ export class UploadComponent implements OnDestroy {
     const clipFileName = uuid()
     const clipPath = `clips/${clipFileName}.mp4`
 
-    const screenshotBlob = await this.ffmpegService.blobFormUrl(
+    const screenshotBlob = await this.ffmpegService.blobFromURL(
       this.selectedScreenshot
     )
     const screenshotPath = `screenshots/${clipFileName}.png`

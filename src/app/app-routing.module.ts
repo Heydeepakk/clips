@@ -8,24 +8,27 @@ import { ClipService } from './services/clip.service';
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: HomeComponent
   },
   {
-    path:'about',
+    path: 'about', // example.com/about
     component: AboutComponent
   },
   {
-    path :'clip/:id',
+    path: 'clip/:id',
     component: ClipComponent,
-    resolve:{
+    resolve: {
       clip: ClipService
     }
   },
   {
-    path:'**',
+    path: '', // dashboard/manage, dashboard/upload
+    loadChildren: async () => (await import('./video/video.module')).VideoModule
+  },
+  {
+    path: '**',
     component: NotFoundComponent
-
   }
 ];
 
