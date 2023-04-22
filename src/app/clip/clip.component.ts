@@ -12,7 +12,7 @@ import videojs from 'video.js';
   providers: [DatePipe]
 })
 export class ClipComponent implements OnInit {
-  @ViewChild('VideoPlayer', { static: true }) target?: ElementRef
+  @ViewChild('videoPlayer', { static: true }) target?: ElementRef
   player?: videojs.Player
   clip?: IClip
   constructor(public route: ActivatedRoute) { }
