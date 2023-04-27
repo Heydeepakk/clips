@@ -84,7 +84,7 @@ export class ClipService implements Resolve<IClip | null> {
     this.pendingReq = true
     let query = this.clipsCollection.ref.orderBy(
       'timestamp', 'desc'
-    ).limit(6)
+    ).limit(3)
 
     const { length } = this.pageClips
 
@@ -126,5 +126,38 @@ export class ClipService implements Resolve<IClip | null> {
           return data
         })
       )
+  }
+//for user's collection
+  async getAllClips() {
+    if(this.pendingReq) {
+      return
+    }
+
+    this.pendingReq = true
+    let query = this.clipsCollection.ref.orderBy(
+      'timestamp', 'desc'
+    )
+
+    const { length } = this.pageClips
+
+    if(length) {
+      const lastDocID = this.pageClips[length - 1].docID
+      const lastDoc = await this.clipsCollection.doc(lastDocID)
+        .get()
+        .toPromise()
+
+      query = query.startAfter(lastDoc)
+    }
+
+    const snapshot = await query.get()
+
+    snapshot.forEach(doc => {
+      this.pageClips.push({
+        docID: doc.id,
+        ...doc.data()
+      })
+    })
+
+    this.pendingReq = false
   }
 }

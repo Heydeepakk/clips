@@ -5,6 +5,7 @@ import { AboutComponent } from './about/about.component';
 import { ClipComponent } from './clip/clip.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ClipService } from './services/clip.service';
+import { AllclipsComponent } from './allclips/allclips.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'about', // example.com/about
     component: AboutComponent
+  },
+  {
+    path: 'allclips',
+    component: AllclipsComponent
   },
   {
     path: 'clip/:id',
