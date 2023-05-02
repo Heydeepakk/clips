@@ -1,7 +1,7 @@
 <!-- Clips List -->
 <head><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1161978357644631"
   crossorigin="anonymous"></script></head>
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+<div (click)="scrollToTop()" class="grid grid-cols-1 lg:grid-cols-3 gap-4">
   <a *ngFor="let clip of clipService.pageClips" 
     [routerLink]="['/', 'clip', clip.docID]"
     class="mt-6 rounded-tl-2xl rounded-br-2xl shadow-xl 
@@ -9,7 +9,8 @@
 
     <!-- Image -->
     <img class="card-img-top rounded-tl-2xl w-full" 
-      [src]="clip.screenshotURL" crossorigin>
+      [src]="clip.screenshotURL" crossorigin
+      (click)="scrollToTop()">
 
     <!-- Shape -->
     <div class="relative">

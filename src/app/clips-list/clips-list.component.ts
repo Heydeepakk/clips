@@ -1,6 +1,8 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component,ElementRef, OnInit, OnDestroy, Input } from '@angular/core';
 import { ClipService } from '../services/clip.service';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-clips-list',
@@ -11,10 +13,9 @@ import { DatePipe } from '@angular/common';
 export class ClipsListComponent implements OnInit, OnDestroy {
   @Input() scrollable = true
 
-  constructor(public clipService: ClipService) { 
-    this.clipService.getClips()
+  constructor(private router: Router,public clipService: ClipService,private elementRef: ElementRef) { 
+    this.clipService.getClips()    
   }
-
   ngOnInit(): void {
     if(this.scrollable) {
       window.addEventListener('scroll', this.handleScroll)
@@ -39,5 +40,9 @@ export class ClipsListComponent implements OnInit, OnDestroy {
       this.clipService.getClips()
     }
   }
-
+  scrollToTop() {
+    const element = this.elementRef.nativeElement;
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+    
 }
