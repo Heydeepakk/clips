@@ -105,8 +105,8 @@ background: linear-gradient(to bottom, #ef473a, #cb2d3e);
 .user__info > small {
   color: #666;
 }
-
-
+/* heading of home */
+/* 
 * {
   margin: 0;
   padding: 0;
@@ -157,4 +157,4 @@ background: linear-gradient(to bottom, #ef473a, #cb2d3e);
     -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
   }
-}
+} */
