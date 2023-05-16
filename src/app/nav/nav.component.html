@@ -2,7 +2,7 @@
 <header id="header" class="bg-secondary">
   <nav class="container mx-auto flex justify-start items-center py-8 px-4">
     <!-- App Name -->
-    <a class="text-3xl text-indigo-400 font-bold uppercase mr-4" routerLink="/">S</a>
+    <a class="text-3xl text-indigo-400 font-bold uppercase mr-4" routerLink="/">CWB</a>
 
     <div class="flex flex-grow items-center">
       <!-- Primary Navigation -->
@@ -33,13 +33,16 @@
           </li>
         </ng-template>
         <li routerLinkActive="text-indigo-400">
+          <a class="px-2" routerLink="/allclips" routerLinkActive="text-indigo-400">Clips</a>
+        </li>
+
+        <li routerLinkActive="text-indigo-400">
           <a class="px-2" routerLink="/about" routerLinkActive="text-indigo-400">
             About
           </a>
         </li>
-        <li routerLinkActive="text-indigo-400">
-          <a class="px-2" routerLink="/allclips" routerLinkActive="text-indigo-400">Collection</a>
-        </li>
+
+
       </ul>
     </div>
   </nav>
